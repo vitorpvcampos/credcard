@@ -13,6 +13,7 @@ pytest-cov = "*"
 codecov = "*"
 pytest = "*"
 gunicorn = "*"
+dj-static = "*"
 
 [dev-packages]
 flake8 = "*"
