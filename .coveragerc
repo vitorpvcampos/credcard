@@ -1,0 +1,9 @@
+[run]
+omit =
+    *__init__*
+    *url*
+    *test*
+    *env*
+    *wsgi*
+    *settings*
+    *asgi*

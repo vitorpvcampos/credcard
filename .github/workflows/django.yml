@@ -1,0 +1,53 @@
+name: Django CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    env:
+      PIPENV_NO_INHERIT: 1
+      PIPENV_IGNORE_VIRTUALENVS: 1
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: [ 3.9.0 ]
+
+    services:
+      postgres:
+        image: postgres:11.5
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: postgres
+        ports: [ '5432:5432' ]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Copying configurations
+        run: |
+          cp contrib/env-sample .env
+      - name: Install Dependencies
+        run: |
+          pip install pipenv
+          pipenv sync --dev
+      - name: Lint with flake8
+        run: |
+          pipenv run flake8 .
+#      - name: Test with pytest
+#        run: |
+#          pipenv run pytest --cov=credcard
+#      - name: Posting Coverage
+#        env:
+#          CODECOV_TOKEN: "1cde334e-c785-4455-a79f-7716ad8d8fd9"
+#        run: |
+#          pipenv run codecov
+
