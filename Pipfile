@@ -12,6 +12,7 @@ pytest-django = "*"
 pytest-cov = "*"
 codecov = "*"
 pytest = "*"
+gunicorn = "*"
 
 [dev-packages]
 flake8 = "*"
