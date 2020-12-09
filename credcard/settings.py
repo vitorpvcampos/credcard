@@ -10,10 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 from functools import partial
 from decouple import config, Csv
-import dj_database_url
+from dj_database_url import parse as dburl
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -76,10 +77,13 @@ WSGI_APPLICATION = 'credcard.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-parse_database = partial(dj_database_url.parse, conn_max_age=600)
+default_db_url = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
+
+if 'localhost' not in ALLOWED_HOSTS:
+    dburl = partial(dburl, conn_max_age=600, ssl_require=True)
 
 DATABASES = {
-    "default": dj_database_url.config(default="sqlite:///%s/db.sqlite3" % (BASE_DIR))
+    'default': config('DATABASE_URL', default=default_db_url, cast=dburl),
 }
 
 

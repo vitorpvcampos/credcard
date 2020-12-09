@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres
+    restart: unless-stopped
+    environment:
+      - LC_ALL=C.UTF-8
+      - POSTGRES_PASSWORD=credcard
+      - POSTGRES_USER=credcard
+      - POSTGRES_DB=credcard_db
+    ports:
+      - "5432:5432"
