@@ -8,6 +8,10 @@ django = "*"
 python-decouple = "*"
 dj-database-url = "*"
 psycopg2 = "*"
+pytest-django = "*"
+pytest-cov = "*"
+codecov = "*"
+pytest = "*"
 
 [dev-packages]
 flake8 = "*"
