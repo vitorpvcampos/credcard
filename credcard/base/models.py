@@ -4,6 +4,7 @@ from django.contrib.auth.models import PermissionsMixin
 from django.core.mail import send_mail
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
+from .validator import validate_cpf
 
 
 class UserManager(BaseUserManager):
@@ -36,7 +37,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(_('first name'), max_length=30)
     last_name = models.CharField(_('last name'), max_length=100)
     email = models.EmailField(_('email address'), unique=True)
-    cpf = models.CharField(max_length=19, unique=True)
+    cpf = models.CharField('CPF (only numbers)', max_length=11, unique=True, validators=[validate_cpf])
     is_staff = models.BooleanField(
         _('staff status'),
         default=False,
