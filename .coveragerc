@@ -8,3 +8,4 @@ omit =
     *settings*
     *asgi*
     *models*
+    *migrations*
