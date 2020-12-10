@@ -7,3 +7,4 @@ omit =
     *wsgi*
     *settings*
     *asgi*
+    *models*
