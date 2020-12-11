@@ -12,9 +12,11 @@ This project was developed as a requirement of a selective process for a vacancy
 
 The objective was to implement an application that allows the request of a credit card from the user's information, through a Restful API. I used [Django](https://docs.djangoproject.com/en/3.1/)) and [Django REST Framework](https://www.django-rest-framework.org/).
 
+A live demo can be seen at [Heroku](https://credcard-vitor.herokuapp.com/).
+
 As differentials:
 * CPF validation
-* Containerized Docker application
+* Containerized Docker application 
 
 ## How to run the project?
 
