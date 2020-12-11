@@ -38,6 +38,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     last_name = models.CharField(_('last name'), max_length=100)
     email = models.EmailField(_('email address'), unique=True)
     cpf = models.CharField('CPF (only numbers)', max_length=11, unique=True, validators=[validate_cpf])
+    salary = models.FloatField('salary')
     is_staff = models.BooleanField(
         _('staff status'),
         default=False,
@@ -54,7 +55,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
     EMAIL_FIELD = 'email'
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['first_name', 'last_name', 'cpf']
+    REQUIRED_FIELDS = ['first_name', 'last_name', 'cpf', 'salary']
 
     class Meta:
         verbose_name = _('user')

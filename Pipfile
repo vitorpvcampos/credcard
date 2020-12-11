@@ -15,6 +15,7 @@ gunicorn = "*"
 dj-static = "*"
 psycopg2 = "*"
 psycopg2-binary = "*"
+djangorestframework = "*"
 
 [dev-packages]
 flake8 = "*"
