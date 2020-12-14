@@ -13,10 +13,10 @@ codecov = "*"
 pytest = "*"
 gunicorn = "*"
 dj-static = "*"
-psycopg2 = "*"
 psycopg2-binary = "*"
 djangorestframework = "*"
 model-bakery = "*"
+psycopg2 = "*"
 
 [dev-packages]
 flake8 = "*"
