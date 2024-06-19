@@ -119,11 +119,8 @@
             "version": "==3.1.4"
         },
         "djangorestframework": {
-            "hashes": [
-                "sha256:0209bafcb7b5010fdfec784034f059d512256424de2a0f084cb82b096d6dd6a7"
-            ],
-            "index": "pypi",
-            "version": "==3.12.2"
+            "hashes": [],
+            "version": "==3.15.2"
         },
         "gunicorn": {
             "hashes": [
